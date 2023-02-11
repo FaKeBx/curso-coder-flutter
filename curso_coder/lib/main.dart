@@ -58,7 +58,7 @@ class _PerguntaAppState extends State<PerguntaApp> {
               )
             : Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [Questao("SE LEU É VIADO!!!")]),
+                children: [Questao("QUESTIONÁRIO RESPONDIDO!!!")]),
       ),
     );
   }
