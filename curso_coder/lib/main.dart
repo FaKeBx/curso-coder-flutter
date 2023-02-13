@@ -42,24 +42,26 @@ class _PerguntaAppState extends State<PerguntaApp> {
 
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text("Perguntas"),
-        ),
-        body: temPerguntaSelecionada
-            ? Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Questao(
-                    _perguntas[_perguntaSelecionada]["texto"].toString(),
+          appBar: AppBar(
+            title: const Text("Perguntas"),
+          ),
+          body: temPerguntaSelecionada
+              ? Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Questao(
+                      _perguntas[_perguntaSelecionada]["texto"].toString(),
+                    ),
+                    ...respostas.map((t) => Resposta(t, _responder)).toList(),
+                  ],
+                )
+              : const Center(
+                  child: Text(
+                    "🎉 Parabéns 🎉",
+                    style: TextStyle(fontSize: 32),
                   ),
-                  ...respostas.map((t) => Resposta(t, _responder)).toList(),
-                ],
-              )
-            : Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [Questao("QUESTIONÁRIO RESPONDIDO!!!")]),
-      ),
+                )),
     );
   }
 }
