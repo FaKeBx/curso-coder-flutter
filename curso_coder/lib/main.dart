@@ -10,15 +10,29 @@ class _PerguntaAppState extends State<PerguntaApp> {
   final _perguntas = const [
     {
       "texto": "Você está aprendendo flutter?",
-      "respostas": ["SIM", "+ OU -", "NÃO", "🤮"],
+      "respostas": [
+        {"texto": "SIM", "nota": 10},
+        {"texto": "+ OU  -", "nota": 7},
+        {"texto": "NÃO", "nota": 5},
+        {"texto": "🤮", "nota": 0},
+      ],
     },
     {
       "texto": "Qual o nível que você está?",
-      "respostas": ["BÁSICO", "INTERMEDIÁRIO", "AVANÇADO"],
+      "respostas": [
+        {"texto": "BÁSICO", "nota": 10},
+        {"texto": "INTERMEDIÁRIO", "nota": 5},
+        {"texto": "AVANÇADO", "nota": 0},
+      ],
     },
     {
       "texto": "Você prefere javaScript?",
-      "respostas": ["SIM", "SIM", "SIM", "!NÃO"],
+      "respostas": [
+        {"texto": "SIM", "nota": 10},
+        {"texto": "SIM", "nota": 7},
+        {"texto": "SIM", "nota": 5},
+        {"texto": "!NÃO", "nota": 0},
+      ],
     },
   ];
 
