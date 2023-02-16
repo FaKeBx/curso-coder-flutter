@@ -11,41 +11,46 @@ class _PerguntaAppState extends State<PerguntaApp> {
     {
       "texto": "Você está aprendendo flutter?",
       "respostas": [
-        {"texto": "SIM", "nota": 10},
-        {"texto": "+ OU  -", "nota": 7},
-        {"texto": "NÃO", "nota": 5},
-        {"texto": "🤮", "nota": 0},
+        {"texto": "SIM", "pontuacao": 10},
+        {"texto": "+ OU  -", "pontuacao": 7},
+        {"texto": "NÃO", "pontuacao": 5},
+        {"texto": "🤮", "pontuacao": 0},
       ],
     },
     {
       "texto": "Qual o nível que você está?",
       "respostas": [
-        {"texto": "BÁSICO", "nota": 10},
-        {"texto": "INTERMEDIÁRIO", "nota": 5},
-        {"texto": "AVANÇADO", "nota": 0},
+        {"texto": "BÁSICO", "pontuacao": 4},
+        {"texto": "INTERMEDIÁRIO", "pontuacao": 7},
+        {"texto": "AVANÇADO", "pontuacao": 10},
       ],
     },
     {
       "texto": "Você prefere javaScript?",
       "respostas": [
-        {"texto": "SIM", "nota": 10},
-        {"texto": "SIM", "nota": 7},
-        {"texto": "SIM", "nota": 5},
-        {"texto": "!NÃO", "nota": 0},
+        {"texto": "SIM", "pontuacao": 10},
+        {"texto": "SIM", "pontuacao": 10},
+        {"texto": "SIM", "pontuacao": 10},
+        {"texto": "!NÃO", "pontuacao": 10},
       ],
     },
   ];
 
   var _perguntaSelecionada = 0;
 
+  var _pontuacaoTotal = 0;
+
   bool get temPerguntaSelecionada {
     return _perguntaSelecionada < _perguntas.length;
   }
 
-  void _responder() {
+  void _responder(int pontuacao) {
     setState(() {
       _perguntaSelecionada++;
+      _pontuacaoTotal += pontuacao;
     });
+
+    print(_pontuacaoTotal);
   }
 
   @override

@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import './questao.dart';
 import './respostas.dart';
@@ -5,7 +7,7 @@ import './respostas.dart';
 class Questionario extends StatelessWidget {
   final List<Map<String, Object>> perguntas;
   final int perguntaSelecionada;
-  final void Function() responder;
+  final void Function(int) responder;
 
   const Questionario({
     super.key,
@@ -32,9 +34,14 @@ class Questionario extends StatelessWidget {
         Questao(
           perguntas[perguntaSelecionada]["texto"].toString(),
         ),
-        ...respostas
-            .map((resp) => Resposta(resp["texto"] as String, responder))
-            .toList(),
+        ...respostas.map((resp) {
+          return Resposta(
+            resp["texto"].toString(),
+            () {
+              responder(int.parse(resp["pontuacao"].toString()));
+            },
+          );
+        }).toList(),
       ],
     );
   }
