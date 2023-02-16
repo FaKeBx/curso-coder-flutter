@@ -26,7 +26,7 @@ class _PerguntaAppState extends State<PerguntaApp> {
       ],
     },
     {
-      "texto": "Você prefere javaScript?",
+      "texto": "Você prefere JavaScript?",
       "respostas": [
         {"texto": "SIM", "pontuacao": 10},
         {"texto": "SIM", "pontuacao": 10},
