@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import './questao.dart';
 import './respostas.dart';
