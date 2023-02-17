@@ -37,8 +37,14 @@ class _PerguntaAppState extends State<PerguntaApp> {
   ];
 
   var _perguntaSelecionada = 0;
-
   var _pontuacaoTotal = 0;
+
+  void _reiniciarQuestionario() {
+    setState(() {
+      _perguntaSelecionada = 0;
+      _pontuacaoTotal = 0;
+    });
+  }
 
   bool get temPerguntaSelecionada {
     return _perguntaSelecionada < _perguntas.length;
@@ -49,8 +55,6 @@ class _PerguntaAppState extends State<PerguntaApp> {
       _perguntaSelecionada++;
       _pontuacaoTotal += pontuacao;
     });
-
-    print(_pontuacaoTotal);
   }
 
   @override
@@ -65,7 +69,7 @@ class _PerguntaAppState extends State<PerguntaApp> {
                 perguntas: _perguntas,
                 perguntaSelecionada: _perguntaSelecionada,
                 responder: _responder)
-            : Resultado(),
+            : Resultado(_pontuacaoTotal, _reiniciarQuestionario),
       ),
     );
   }
